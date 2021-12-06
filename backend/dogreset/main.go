@@ -1,4 +1,4 @@
-package main
+package dogreset
 
 func Add(a, b int) int {
   return a + b

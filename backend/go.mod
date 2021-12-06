@@ -1,4 +1,4 @@
-module example.com/foo
+module github.com/toruta39/codecov-sandbox/backend
 
 go 1.16
 
