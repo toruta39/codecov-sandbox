@@ -1,0 +1,28 @@
+name: Codecov
+on:
+  push:
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-go@v1
+        with:
+          go-version: "^1.17.0"
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "16"
+      - run: |
+          go test -coverprofile=coverage.txt ./...
+        working-directory: backend
+      - run: yarn
+        working-directory: frontend
+      - run: yarn test
+        working-directory: frontend/packages/cat-reset
+      - uses: codecov/codecov-action@v2
+        with:
+          verbose: true
+
+    
+
