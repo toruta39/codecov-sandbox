@@ -3,5 +3,9 @@ exports.add = function add(a, b) {
     throw Error('parameters have to be number')  
   }
 
+  if (isNaN(a) || isNaN(b)) {
+    throw Error('NaN is not allowed')
+  }
+
   return a + b
 }
